@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to Skynet
         uses: SkynetLabs/deploy-to-skynet-action@v2
         with:
-          upload-dir: ./build
+          upload-dir: ./defi-dapp/build
           github-token: ${{ secrets.GITHUB_TOKEN }}
           registry-seed: ${{ secrets.REGISTRY_SEED || '' }}
           registry-datakey: ${{ secrets.REGISTRY_DATAKEY || '' }}
