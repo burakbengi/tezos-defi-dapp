@@ -15,11 +15,14 @@ jobs:
           node-version: 16.x
 
       - run: yarn
-      - run: yarn build
+      - run: |
+            cd ./defi-dapp/
+            yarn build
+      - run: ls -lsa
 
       - name: "Deploy to Skynet"
         uses: SkynetLabs/deploy-to-skynet-action@resolver-skylink
         with:
-          upload-dir: build
+          upload-dir: ./defi-dapp/build
           github-token: ${{ secrets.GITHUB_TOKEN }}
           registry-seed: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && secrets.SKYNET_REGISTRY_SEED || '' }}
